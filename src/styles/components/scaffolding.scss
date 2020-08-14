@@ -1,0 +1,74 @@
+
+// Base
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
+    font-size: 95% !important;
+}
+
+body {
+    color: $font-color;
+    font-size: 1rem;
+    margin: 0;
+}
+
+button {
+    border-radius: 5px;
+    font-size: 1.1rem;
+    box-shadow: none;
+    padding: 1.1rem;
+    border: none;
+    background-color: #f96854;
+    color: #fdfdfd;
+    font-weight: 300;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 1px 1px 15px 0 rgba(0, 0, 0, 0.25);
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        transform: translateY(-1px);
+    }
+}
+
+p,
+ol,
+li {
+    font-family: $font-family-secondary;
+    font-size: $font-size;
+    word-break: normal;
+}
+
+p {
+    margin: 0;
+    margin-block-end: 20px;
+}
+
+li {
+    margin-top: 0.8rem;
+}
+
+ul {
+    word-break: break-all;
+}
+
+a {
+    color: $primary-color;
+    text-decoration: none;
+    overflow-wrap: break-word;
+}
+
+blockquote {
+    border-left: 5px solid #c5c5c5;
+    padding-left: 1.2em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+::selection {
+    background: #ffe1dd; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+    background: #ffe1dd; /* Gecko Browsers */
+}
