@@ -12,14 +12,29 @@ class FilterBar extends Component {
     }
 
     handleSubmit(e) {
-        console.log(e);
+        // console.log(e);
         e.preventDefault();
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <LoanSize />
+                <div className="form-element">
+                    <label>
+                        Loan Size
+                    </label>
+                    <div className="currency-input">
+                        <input 
+                            type="number" 
+                            required 
+                            min="50000"
+                            value={this.state.value} 
+                            aria-label="loan-size-input" 
+                            onChange={this.handleChange} 
+                        />
+                        <span>$</span>
+                    </div>
+                </div>
                 <input type="submit" value="Submit" aria-label="submit"/>
             </form>
         );

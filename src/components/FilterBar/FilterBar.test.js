@@ -10,15 +10,20 @@ describe("Filter Bar Input Form", () => {
         return {
             loanSizeInput,
             submit,
-            ...component
+            component
         }
     }
 
-    test('Loan Size input does not accept invalid numbers to be inputted', () => {
-        const { loanSizeInput, submit } = setup();
-        fireEvent.change(loanSizeInput, { target: { value: -50}});
-        fireEvent.click(submit);
-        // expect(handleSubmitSpy.toBeCalled())
+    test('Contains Loan Size Input', () => {
+        const { loanSizeInput } = setup();
+        expect(loanSizeInput).toBeInTheDocument();
     });
+    // test('Loan Size input does not accept invalid numbers to be inputted', () => {
+    //     const { loanSizeInput, submit, component} = setup();
+    //     fireEvent.change(loanSizeInput, { target: { value: -50}});
+    //     fireEvent.click(submit);
+    //     const style = window.getComputedStyle(loanSizeInput);
+    //     expect(style.borderColor).toBe('red');
+    // });
 
 });

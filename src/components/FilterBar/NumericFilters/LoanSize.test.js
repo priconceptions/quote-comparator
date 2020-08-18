@@ -32,7 +32,8 @@ describe("Test Loan Size Input Form", () => {
     // test('It does not accept invalid numbers to be inputted', () => {
     //     const { input } = setup();
     //     fireEvent.change(input, { target: { value: -50}});
-    //     expect(input.value).toBe('');
+    //     const style = window.getComputedStyle(input);
+    //     expect(style.borderColor).toBe('red');
     // });
 
     // test('It does not accept values less than 50000 (typical minimum mortgage amount)', () => {
