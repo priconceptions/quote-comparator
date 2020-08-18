@@ -1,5 +1,6 @@
 import React from 'react';
 import '../src/styles/main.scss'
+import FilterBar from './components/FilterBar/FilterBar';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <FilterBar />
     </div>
   );
 }
