@@ -2,8 +2,12 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("App component - Main page", () => {
+  test('contains input components', () => {
+    const { getByLabelText } = render(<App />);
+    const loanSizeInput = getByLabelText('loan-size-input');
+    expect(loanSizeInput).toBeInTheDocument();
+    const creditScoreInput = getByLabelText('credit-score-input');
+    expect(creditScoreInput).toBeInTheDocument();
+  });
 });
