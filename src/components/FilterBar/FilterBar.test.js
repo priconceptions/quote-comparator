@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '../../test-utils';
+import '@testing-library/jest-dom/extend-expect';
 import FilterBar from './FilterBar';
 
 describe("Filter Bar Input Form", () => {

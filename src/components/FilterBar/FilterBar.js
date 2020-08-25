@@ -2,6 +2,23 @@ import React, { Component } from "react";
 import LoanSize from "./NumericFilters/LoanSize";
 import CreditScore from "./NumericFilters/CreditScore";
 
+import { connect } from 'react-redux';
+import { setLoanSize } from '../../redux/actions/actions';
+
+
+const mapStateToProps = (state) => {
+    return {
+        loanSize: state.loanSize,
+        creditScore: state.creditScore
+    };
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLoanSize: loanSizeInput => dispatch(setLoanSize(loanSizeInput))
+    };
+}
+
 class FilterBar extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +29,7 @@ class FilterBar extends Component {
     }
 
     handleSubmit(e) {
-        // console.log(e);
+        console.log(e);
         e.preventDefault();
     }
 
@@ -27,4 +44,4 @@ class FilterBar extends Component {
     }
 }
 
-export default FilterBar;
+export default connect(mapStateToProps, mapDispatchToProps)(FilterBar);

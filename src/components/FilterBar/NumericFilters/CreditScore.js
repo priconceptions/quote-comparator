@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 
+import { connect } from 'react-redux';
+import { setCreditScore } from '../../../redux/actions/actions';
+
+const mapStateToProps = (state) => {
+    return {
+        creditScore: state.creditScore
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setCreditScore: creditScoreInput => dispatch(setCreditScore(creditScoreInput))
+    };
+};
 class CreditScore extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            value: ""
-        };
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
         let value = e.target.value;
-        this.setState({
-            value: value
-        });
+        this.props.setCreditScore(value);
     }
 
     render() {
@@ -27,7 +36,7 @@ class CreditScore extends Component {
                         required 
                         min="300"
                         max="850"
-                        value={this.state.value} 
+                        value={this.props.creditScore} 
                         aria-label="credit-score-input" 
                         onChange={this.handleChange} 
                     />
@@ -36,4 +45,4 @@ class CreditScore extends Component {
     }
 }
 
-export default CreditScore;
+export default connect(mapStateToProps, mapDispatchToProps)(CreditScore);

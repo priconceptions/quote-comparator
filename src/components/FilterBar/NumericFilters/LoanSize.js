@@ -1,5 +1,20 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+import { setLoanSize } from '../../../redux/actions/actions';
+
+
+const mapStateToProps = (state) => {
+    return {
+        loanSize: state.loanSize
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLoanSize: loanSizeInput => dispatch(setLoanSize(loanSizeInput))
+    };
+};
 
 class LoanSize extends Component {
     constructor(props) {
@@ -12,12 +27,7 @@ class LoanSize extends Component {
 
     handleChange(e) {
         let value = e.target.value;
-        // if (value < 50000) {
-        //     value = '';
-        // }
-        this.setState({
-            value: value
-        });
+        this.props.setLoanSize(value);
     }
 
     render() {
@@ -31,7 +41,7 @@ class LoanSize extends Component {
                             type="number" 
                             required 
                             min="50000"
-                            value={this.state.value} 
+                            value={this.props.loanSize} 
                             aria-label="loan-size-input" 
                             onChange={this.handleChange} 
                         />
@@ -42,4 +52,4 @@ class LoanSize extends Component {
     }
 }
 
-export default LoanSize;
+export default connect(mapStateToProps, mapDispatchToProps)(LoanSize);

@@ -1,0 +1,2 @@
+export const SET_LOAN_SIZE = "SET_LOAN_SIZE";
+export const SET_CREDIT_SCORE = "SET_CREDIT_SCORE";

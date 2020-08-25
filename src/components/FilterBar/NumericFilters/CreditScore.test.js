@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '../../../test-utils';
+import '@testing-library/jest-dom/extend-expect';
 import CreditScore from "./CreditScore";
 
-describe("Test Loan Size Input Form", () => {
+describe("Test Credit Score Input Form", () => {
     const setup = () => {
         const component = render(<CreditScore />);
         const input = component.getByLabelText('credit-score-input');
