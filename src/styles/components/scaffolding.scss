@@ -97,3 +97,9 @@ input:invalid:focus {
     background: #ffe1dd; /* Gecko Browsers */
 }
 
+select {
+    padding: 2px 20px;
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}

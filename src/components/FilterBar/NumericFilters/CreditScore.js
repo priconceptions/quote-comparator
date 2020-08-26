@@ -31,15 +31,18 @@ class CreditScore extends Component {
                     <label>
                         Credit Score
                     </label>
-                    <input 
-                        type="number" 
-                        required 
-                        min="300"
-                        max="850"
-                        value={this.props.creditScore} 
-                        aria-label="credit-score-input" 
-                        onChange={this.handleChange} 
-                    />
+                    <div className="currency-input">
+                        <input 
+                            type="number" 
+                            required 
+                            min="300"
+                            max="850"
+                            value={this.props.creditScore} 
+                            aria-label="credit-score-input" 
+                            onChange={this.handleChange} 
+                        />
+                        <span> </span>
+                    </div>
                 </div>
         );
     }

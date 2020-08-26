@@ -13,21 +13,13 @@
 //     font-style: normal;
 // }
 
-.form {
+.filter-bar-form {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    justify-self: center;
     flex-wrap: wrap;
-    max-height: 150px;
-    margin: 0 auto;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    width: 800px;
+    margin: auto;
+    align-content: space-between;
 }
 
 .form-element {
@@ -50,5 +42,6 @@
     input {
         padding-left: 25px;
         padding-right: 0;
+        min-width: 260px;
     }
 }

@@ -1,6 +1,8 @@
 const initialState = {
     loanSize: '',
-    creditScore: ''
+    creditScore: '',
+    propertyType: '',
+    occupancy: ''
 };
 
 export default initialState;
