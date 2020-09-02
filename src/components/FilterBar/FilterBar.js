@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import LoanSize from "./NumericFilters/LoanSize";
 import CreditScore from "./NumericFilters/CreditScore";
 import PropertyType from './DropDowns/PropertyType';
+import Occupancy from './DropDowns/Occupancy';
 
 import { connect } from 'react-redux';
 import { setLoanSize } from '../../redux/actions/actions';
-
 
 
 const mapStateToProps = (state) => {
@@ -24,9 +24,6 @@ const mapDispatchToProps = (dispatch) => {
 class FilterBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            
-        }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -41,7 +38,7 @@ class FilterBar extends Component {
                 <LoanSize />
                 <PropertyType type="propertyType"/>
                 <CreditScore />
-                <PropertyType type="occupancy"/>
+                <Occupancy />
                 <input type="submit" className="form-element" value="Submit" aria-label="submit"/>
             </form>
         );

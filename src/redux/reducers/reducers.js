@@ -1,4 +1,5 @@
 import { 
+    SET_AUTH_TOKEN,
     SET_LOAN_SIZE, 
     SET_CREDIT_SCORE, 
     SET_PROPERTY_TYPE, 
@@ -6,24 +7,41 @@ import {
 import initialState from './initialState';
 
 function rootReducer(state=initialState, action) {
-    if (action.type === SET_LOAN_SIZE) {
+    if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
-           loanSize: action.payload 
+            authToken: action.payload
+        });
+    }
+    else if (action.type === SET_LOAN_SIZE) {
+        return Object.assign({}, state, {
+            inputParams: {
+                ...state.inputParams,
+                loanSize: action.payload
+            }
         });
     }
     else if (action.type === SET_CREDIT_SCORE) {
         return Object.assign({}, state, {
-            creditScore: action.payload
+            inputParams: {
+                ...state.inputParams,
+                creditScore: action.payload
+            }
         });
     }
     else if (action.type === SET_PROPERTY_TYPE) {
         return Object.assign({}, state, {
-            propertyType: action.payload
+            inputParams: {
+                ...state.inputParams,
+                propertyType: action.payload
+            }
         });
     }
     else if (action.type === SET_OCCUPANCY) {
         return Object.assign({}, state, {
-            occupancy: action.payload
+            inputParams: {
+                ...state.inputParams,
+                occupancy: action.payload
+            }
         });
     }
     return state;

@@ -1,9 +1,14 @@
 import { 
+    SET_AUTH_TOKEN,
     SET_LOAN_SIZE, 
     SET_CREDIT_SCORE,
     SET_PROPERTY_TYPE,
     SET_OCCUPANCY
  } from '../constants/actionTypes';
+
+export function setAuthToken(payload) { 
+    return {type: SET_AUTH_TOKEN, payload};
+};
 
 export function setLoanSize(payload) { 
     return {type: SET_LOAN_SIZE, payload};

@@ -40,7 +40,7 @@ class LoanSize extends Component {
                         <input 
                             type="number" 
                             required 
-                            min="50000"
+                            min="0"
                             value={this.props.loanSize} 
                             aria-label="loan-size-input" 
                             onChange={this.handleChange} 

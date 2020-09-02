@@ -5,6 +5,7 @@ import App from './App';
 
 describe("App component - Main page", () => {
   test('contains input components', () => {
+    window.prompt = () => {};
     const { getByLabelText } = render(<App />);
     const loanSizeInput = getByLabelText('loan-size-input');
     expect(loanSizeInput).toBeInTheDocument();

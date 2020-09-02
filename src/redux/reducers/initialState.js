@@ -1,8 +1,11 @@
 const initialState = {
-    loanSize: '',
-    creditScore: '',
-    propertyType: '',
-    occupancy: ''
+    authToken: '',
+    inputParams: {
+        loanSize: '',
+        creditScore: '',
+        propertyType: '',
+        occupancy: ''
+    }
 };
 
 export default initialState;

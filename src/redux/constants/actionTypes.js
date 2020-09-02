@@ -1,3 +1,4 @@
+export const SET_AUTH_TOKEN = "SET_AUTH_TOKEN";
 export const SET_LOAN_SIZE = "SET_LOAN_SIZE";
 export const SET_CREDIT_SCORE = "SET_CREDIT_SCORE";
 export const SET_PROPERTY_TYPE = "SET_PROPERTY_TYPE";
