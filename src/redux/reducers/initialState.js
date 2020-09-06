@@ -1,5 +1,5 @@
 const initialState = {
-    authToken: '',
+    authToken: null,
     inputParams: {
         loanSize: '',
         creditScore: '',

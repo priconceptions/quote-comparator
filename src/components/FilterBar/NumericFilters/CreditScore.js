@@ -5,7 +5,7 @@ import { setCreditScore } from '../../../redux/actions/actions';
 
 const mapStateToProps = (state) => {
     return {
-        creditScore: state.creditScore
+        creditScore: state.inputParams.creditScore
     };
 };
 

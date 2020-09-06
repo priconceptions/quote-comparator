@@ -6,7 +6,7 @@ import { setPropertyType } from '../../../redux/actions/actions';
 
 const mapStateToProps = (state) => {
     return {
-        propertyType: state.propertyType
+        propertyType: state.inputParams.propertyType
     }
 };
 
