@@ -1,5 +1,6 @@
 import { 
     SET_AUTH_TOKEN,
+    SET_REFRESH_GRID,
     SET_LOAN_SIZE, 
     SET_CREDIT_SCORE, 
     SET_PROPERTY_TYPE, 
@@ -10,6 +11,11 @@ function rootReducer(state=initialState, action) {
     if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.payload
+        });
+    }
+    else if (action.type === SET_REFRESH_GRID) {
+        return Object.assign({}, state, {
+            refreshGrid: action.payload
         });
     }
     else if (action.type === SET_LOAN_SIZE) {

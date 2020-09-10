@@ -1,5 +1,6 @@
 import { 
     SET_AUTH_TOKEN,
+    SET_REFRESH_GRID,
     SET_LOAN_SIZE, 
     SET_CREDIT_SCORE,
     SET_PROPERTY_TYPE,
@@ -8,6 +9,10 @@ import {
 
 export function setAuthToken(payload) { 
     return {type: SET_AUTH_TOKEN, payload};
+};
+
+export function setRefreshGrid(payload) { 
+    return {type: SET_REFRESH_GRID, payload};
 };
 
 export function setLoanSize(payload) { 

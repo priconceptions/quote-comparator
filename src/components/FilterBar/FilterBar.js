@@ -5,19 +5,21 @@ import PropertyType from './DropDowns/PropertyType';
 import Occupancy from './DropDowns/Occupancy';
 
 import { connect } from 'react-redux';
-import { setLoanSize } from '../../redux/actions/actions';
+import { setLoanSize, setRefreshGrid } from '../../redux/actions/actions';
 
 
 const mapStateToProps = (state) => {
     return {
         loanSize: state.inputParams.loanSize,
-        creditScore: state.creditScore
+        creditScore: state.creditScore,
+        refreshGrid: state.refreshGrid
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLoanSize: loanSizeInput => dispatch(setLoanSize(loanSizeInput))
+        setLoanSize: loanSizeInput => dispatch(setLoanSize(loanSizeInput)),
+        setRefreshGrid: refreshGridVal => dispatch(setRefreshGrid(refreshGridVal))
     };
 }
 
@@ -28,8 +30,8 @@ class FilterBar extends Component {
     }
 
     handleSubmit(e) {
-        console.log(e);
         e.preventDefault();
+        this.props.setRefreshGrid(!this.props.refreshGrid);
     }
 
     render() {
@@ -38,7 +40,7 @@ class FilterBar extends Component {
                 <LoanSize />
                 <PropertyType type="propertyType"/>
                 <CreditScore />
-                <Occupancy />
+                <Occupancy /> 
                 <input type="submit" className="form-element" value="Submit" aria-label="submit"/>
             </form>
         );
