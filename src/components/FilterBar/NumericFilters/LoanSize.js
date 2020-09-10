@@ -6,7 +6,7 @@ import { setLoanSize } from '../../../redux/actions/actions';
 
 const mapStateToProps = (state) => {
     return {
-        loanSize: state.loanSize
+        loanSize: state.inputParams.loanSize
     };
 };
 
