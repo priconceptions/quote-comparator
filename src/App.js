@@ -12,22 +12,43 @@ const mapDispatchToProps = (dispatch) => {
         setAuthToken: authToken => dispatch(setAuthToken(authToken))
     }
 };
+
+const mapStateToProps = (state) => {
+  return {
+      authToken: state.authToken
+  }
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       authLoaded: false
     };
+    this.promptSetAuthToken = this.promptSetAuthToken.bind(this);
   }
 
-  componentDidMount() {
+  promptSetAuthToken() {
     const authToken = prompt("Please enter authorization token");
-    this.props.setAuthToken(authToken);
+    if (authToken !== null && authToken !== "") {
+      this.props.setAuthToken(authToken);
+    }
     this.setState({
       authLoaded: true
     });
   }
 
+  componentDidMount() {
+    if (!this.props.authToken){
+      this.promptSetAuthToken();
+    }
+    else {
+      this.setState({
+        authLoaded: true
+      })
+    }
+  }
+  
   render() {
     if (this.state.authLoaded){
       return (
@@ -35,6 +56,7 @@ class App extends Component {
           <FilterBar />
           <QuotesDisplay />
           <ToastContainer autoClose={2500} />
+          <button className="reenterAuth" onClick={this.promptSetAuthToken}>Re-enter auth token</button>
         </div>
       );
     }
@@ -46,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

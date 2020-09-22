@@ -36,7 +36,6 @@ class QuotesDisplay extends Component {
     fetchQuotes() {
         getQuotes(this.props.authToken, this.props.inputParams)
         .then(data => {
-            console.log(data);
             if (data.errorStatus) {
                 toast.error("😳 Fetching the API failed with error code:" + data.errorStatus + " " + data.errorMessage);
             }
