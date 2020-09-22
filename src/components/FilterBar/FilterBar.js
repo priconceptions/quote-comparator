@@ -5,20 +5,17 @@ import PropertyType from './DropDowns/PropertyType';
 import Occupancy from './DropDowns/Occupancy';
 
 import { connect } from 'react-redux';
-import { setLoanSize, setRefreshGrid } from '../../redux/actions/actions';
+import { setRefreshGrid } from '../../redux/actions/actions';
 
 
 const mapStateToProps = (state) => {
     return {
-        loanSize: state.inputParams.loanSize,
-        creditScore: state.creditScore,
         refreshGrid: state.refreshGrid
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setLoanSize: loanSizeInput => dispatch(setLoanSize(loanSizeInput)),
         setRefreshGrid: refreshGridVal => dispatch(setRefreshGrid(refreshGridVal))
     };
 }

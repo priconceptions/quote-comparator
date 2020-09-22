@@ -4,8 +4,8 @@ const initialState = {
     inputParams: {
         loanSize: '',
         creditScore: '',
-        propertyType: '',
-        occupancy: ''
+        propertyType: 'SingleFamily',
+        occupancy: 'Primary'
     }
 };
 

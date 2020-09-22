@@ -6,7 +6,7 @@ import { setOccupancy} from '../../../redux/actions/actions';
 
 const mapStateToProps = (state) => {
     return {
-        occupancy: state.occupancy
+        occupancy: state.inputParams.occupancy
     }
 };
 

@@ -4,6 +4,8 @@ import FilterBar from './components/FilterBar/FilterBar';
 import { connect } from 'react-redux';
 import { setAuthToken } from './redux/actions/actions';
 import QuotesDisplay from './components/Grid/QuotesDisplay';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -17,6 +19,7 @@ class App extends Component {
       authLoaded: false
     };
   }
+
   componentDidMount() {
     const authToken = prompt("Please enter authorization token");
     this.props.setAuthToken(authToken);
@@ -31,6 +34,7 @@ class App extends Component {
         <div className="main-layout">
           <FilterBar />
           <QuotesDisplay />
+          <ToastContainer autoClose={2500} />
         </div>
       );
     }

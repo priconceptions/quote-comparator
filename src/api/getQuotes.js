@@ -13,7 +13,10 @@ async function getQuotes(authToken, params) {
     
     const quotesPromise = await fetch(
       `${QUOTES_URL}?${queryString.stringify(params)}`, 
-      requestOptions)
+      requestOptions);
+    if (!quotesPromise.ok) {
+      return {errorStatus: quotesPromise.status, errorMessage: quotesPromise.statusText};
+    }
     const data = await quotesPromise.json();
     return data;
 }

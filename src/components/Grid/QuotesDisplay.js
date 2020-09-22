@@ -6,6 +6,8 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 import getQuotes from '../../api/getQuotes';
 import { jsonToColumnDefs } from './gridUtils';
+import { toast } from "react-toastify";
+
 
 const mapStateToProps = (state) => {
     return {
@@ -23,33 +25,41 @@ class QuotesDisplay extends Component {
             columnDefs: [],
             rowData: []
         }
+
+        this.fetchQuotes = this.fetchQuotes.bind(this);
     }
 
     componentDidMount() {
+        this.fetchQuotes();
+    }
+
+    fetchQuotes() {
         getQuotes(this.props.authToken, this.props.inputParams)
         .then(data => {
-            if (data.rateQuotes) {
+            console.log(data);
+            if (data.errorStatus) {
+                toast.error("😳 Fetching the API failed with error code:" + data.errorStatus + " " + data.errorMessage);
+            }
+            else if (data.rateQuotes && data.rateQuotes.length > 0) {
                 this.setState({
                     columnDefs: jsonToColumnDefs(data.rateQuotes[0]),
                     rowData: data.rateQuotes
-                })
+                }, () => toast.success("🎉 Grid Updated!"))
+            }
+            else if (data.rateQuotes.length === 0){
+                this.setState({
+                    rowData: data.rateQuotes
+                }, () => toast.warning("😕 Looks like we don't have data for these parameters. Try tweaking the inputs!"));
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.refreshGrid !== this.props.refreshGrid) {
-            getQuotes(this.props.authToken, this.props.inputParams)
-            .then(data => {
-                if (data.rateQuotes) {
-                    this.setState({
-                        columnDefs: jsonToColumnDefs(data.rateQuotes[0]),
-                        rowData: data.rateQuotes
-                    })
-                }
-            })
-            .catch(err => console.log(err))
+            this.fetchQuotes();
         }
     }
 
