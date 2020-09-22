@@ -1,30 +1,17 @@
-// .currency-input {
-//     position: relative;
-//   }
-  
-// .currency-input > i {
-// position: absolute;
-// display: block;
-// transform: translate(0, -50%);
-// top: 50%;
-// pointer-events: none;
-// width: 25px;
-// text-align: center;
-//     font-style: normal;
-// }
-
 .filter-bar-form {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    width: $max-width;
+    flex-direction: column;
+    max-width: $max-width;
     margin: auto;
-    align-content: space-between;
+    align-content: center;
 }
 
 .form-element {
-    display: inline-flex;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0;
+
 }
 
 .currency-input {
@@ -33,7 +20,7 @@
         position: absolute;
         display: block;
         transform: translate(0, -50%);
-        top: 49%;
+        top: 42%;
         pointer-events: none;
         width: 25px;
         text-align: center;
@@ -43,5 +30,66 @@
         padding-left: 25px;
         padding-right: 0;
         min-width: 260px;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-height: 30px;
+    font: $font-style $font-variant $font-weight 1.3rem $font-family;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    &:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+    }
+}
+
+input[type=submit] {
+    @extend button;
+}
+
+input:invalid:focus {
+    border: red 0.2px dashed;
+}
+
+label {
+    align-self: start;
+}
+
+select {
+    padding: 0.5rem 0.5rem;
+    font: inherit;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1.3rem;
+}
+
+@include small-breakpoint {
+    .filter-bar-form {
+        flex-direction: row;
+        align-content: space-between;
+    }
+
+    .form-element {
+        display: inline-flex;
+        flex-direction: row;
+        margin: 20px;
+    }
+
+    input {
+        font-size: $font-size;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    select {
+        font-size: $font-size;
     }
 }

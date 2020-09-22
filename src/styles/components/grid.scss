@@ -1,9 +1,21 @@
 .ag-theme-alpine {
     margin: auto;
-    width: $max-width;
+    width: 100%;
     height: 70vh;
 }
 
 .ag-header-cell-label {
     justify-content: center;
+ }
+
+ @include small-breakpoint {
+    .ag-theme-alpine {
+        margin: auto;
+        height: 70vh;
+    }
+    
+    .ag-header-cell-label {
+        justify-content: center;
+     }
+    
  }
