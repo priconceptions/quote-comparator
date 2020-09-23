@@ -1,22 +1,15 @@
 .main-layout {
-    margin-top: 30px;
-    padding: 40px 0 0;
+    padding: 10px 0 0;
     min-height: calc(100vh - 162px);
-}
-.container {
-    margin: 0 auto;
-    padding: 10px 1.5rem;
+    text-align: center;
     max-width: $max-width;
     margin: auto;
 }
 @include small-breakpoint {
     .main-layout {
-        margin-top: 60px;
-        padding: 40px 0 0;
+        padding: 10px 0 0;
         min-height: calc(100vh - 135px);
-    }
-
-    .container {
-        padding: 0.75rem;
+        max-width: $max-width;
+        margin: auto;
     }
 }
