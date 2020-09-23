@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { setOccupancy} from '../../../redux/actions/actions';
+import { toSentenceCase } from '.././../Grid/gridUtils'
 
 
 const mapStateToProps = (state) => {
@@ -20,7 +21,7 @@ class Occupancy extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ""
+            options: ["Primary", "Secondary", "Investment"]
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -31,15 +32,20 @@ class Occupancy extends Component {
     }
 
     render() {
+        const renderDropDownOptions = () => {
+            let options = [];
+            for (let opt of this.state.options) {
+                options.push(<option value={opt} key={opt}>{toSentenceCase(opt)}</option>);
+            }
+            return options;
+        }
         return (
                 <div className="form-element">
                     <label>
                         Occupancy
                     </label>
                     <select className="dropdown" value={this.props.occupancy} onChange={this.handleChange}>
-                        <option value="Primary">Primary</option>
-                        <option value="Secondary">Secondary</option>
-                        <option value="Investment">Investment</option>
+                        {renderDropDownOptions()}
                     </select>
                 </div>
         );

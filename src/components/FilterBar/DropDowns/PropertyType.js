@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPropertyType } from '../../../redux/actions/actions';
 
+import { toSentenceCase } from '.././../Grid/gridUtils'
+
 
 const mapStateToProps = (state) => {
     return {
@@ -20,7 +22,7 @@ class PropertyType extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: ""
+            options: ["SingleFamily", "Condo", "Townhouse", "MultiFamily"]
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -31,16 +33,20 @@ class PropertyType extends Component {
     }
 
     render() {
+        const renderDropDownOptions = () => {
+            let options = [];
+            for (let opt of this.state.options) {
+                options.push(<option value={opt} key={opt}>{toSentenceCase(opt)}</option>);
+            }
+            return options;
+        }
         return (
                 <div className="form-element">
                     <label>
                         Property Type
                     </label>
                     <select className="dropdown" value={this.props.propertyType} onChange={this.handleChange}>
-                        <option value="SingleFamily">SingleFamily</option>
-                        <option value="Condo">Condo</option>
-                        <option value="Townhouse">Townhouse</option>
-                        <option value="MultiFamily">MultiFamily</option>
+                        {renderDropDownOptions()}
                     </select>
                 </div>
         );
