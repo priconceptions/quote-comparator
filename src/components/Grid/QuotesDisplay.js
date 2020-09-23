@@ -69,7 +69,7 @@ class QuotesDisplay extends Component {
     render() {
         const gridOptions = {
           defaultColDef: {
-            editable: true,
+            editable: false,
             sortable: true,
             resizable: true,
             suppressSizeToFit: false
