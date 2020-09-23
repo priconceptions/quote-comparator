@@ -80,6 +80,7 @@ class QuotesDisplay extends Component {
             <AgGridReact
               columnDefs={this.state.columnDefs}
               rowData={this.state.rowData}
+              suppressDragLeaveHidesColumns={true}
               gridOptions={gridOptions}
               onFirstDataRendered={this.onFirstDataRendered.bind(this)}
               >
