@@ -3,13 +3,19 @@ Compare and rate quotes to find your next mortgage.
 
 ## Run the project locally
 
-In order to run this project, 
+In order to run this project locally, make sure you have [NodeJS](https://nodejs.org/en/download/) installed.
 
-1. Install dependencies:
+Run through the following steps:
+
+1. Clone the repository using this command:
+   ```
+   git clone https://github.com/priconceptions/quote-comparator.git
+   ```
+2. Install dependencies:
    ```
     npm install
    ```
-2. Run the code:
+3. Run the code:
    ```
     npm start
    ```
